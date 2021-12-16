@@ -1,22 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { Component, useState } from 'react';
 import Home from './Home'
 import Booster from './Booster';
 
-function App() {
-  const [count, setCount] = useState(0);
-  let [view, setView] = useState("Home");
+class App extends Component {
 
-  console.log("the value of view:", view);
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+      view: 'Home'
+    }
+  }
 
-  return (
-    <div className="App">
-      <h1>Warcraft Army Manager</h1>
-      {view === "Home" ? <Home setView={setView}></Home> : 
-      view === "Booster" ? <Booster setView={setView}></Booster> : ""}
-    </div>
-  );
+  render() {
+    return (
+      <div className="App container">
+        <h1>Warcraft Army Manager</h1>
+          {this.state.view === "Home" ? <Home setView={(view) => {this.setState({view})}}></Home> : 
+          this.state.view === "Booster" ? <Booster setView={(view) => {this.setState({view})}}></Booster> : ""}
+      </div>
+    );
+  }
 }
 
 export default App;
