@@ -36,7 +36,7 @@ class App extends Component {
       <div className="App container">
         <h1>Warcraft Army Manager</h1>
           {this.state.view === "Home" ? <Home setView={(view) => {this.setState({view})}}></Home> : 
-          this.state.view === "Booster" ? <Booster setView={(view) => {this.setState({view})}}></Booster> : ""}
+          this.state.view === "Booster" ? <Booster miniatures={this.state.miniatures} setView={(view) => {this.setState({view})}}></Booster> : ""}
       </div>
     );
   }
