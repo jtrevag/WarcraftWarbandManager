@@ -3,6 +3,7 @@ import './App.css';
 import { Component, useState } from 'react';
 import Home from './Home'
 import Booster from './Booster';
+import Airtable from 'airtable';
 
 class App extends Component {
 
@@ -10,11 +11,27 @@ class App extends Component {
     super(props);
     this.state = {
       count: 0,
-      view: 'Home'
+      view: 'Home',
+      miniatures: []
     }
   }
 
+  componentDidMount() {
+    var base = new Airtable({apiKey: 'keypdRxgjESOVnp9g'}).base('appi27ynSRiwJ0WEQ');
+
+    base('Miniatures').select({view: 'Grid view'})
+    .eachPage(
+      (records, fetchNextPage) => {
+        this.setState({
+          miniatures: [...this.state.miniatures, ...records]
+        });
+        fetchNextPage();
+      }
+    );
+  }
+
   render() {
+    console.log(this.state);
     return (
       <div className="App container">
         <h1>Warcraft Army Manager</h1>
