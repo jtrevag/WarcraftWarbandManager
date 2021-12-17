@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import Home from './Home'
 import Booster from './Booster';
 import Airtable from 'airtable';
@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var base = new Airtable({apiKey: 'keypdRxgjESOVnp9g'}).base('appi27ynSRiwJ0WEQ');
+    var base = new Airtable({apiKey: 'keycAAcHBy1WJJYyl'}).base('appi27ynSRiwJ0WEQ');
 
     base('Miniatures').select({view: 'Grid view'})
     .eachPage(
