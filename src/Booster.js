@@ -1,4 +1,9 @@
+import {useState} from 'react';
+import BoosterRow from './BoosterRow';
+
 export default function Booster({setView, miniatures}) {
+
+    const [booster, setBooster] = useState([])
 
     function generateBooster(faction) {
         function getRandomInt(max) {
@@ -29,9 +34,14 @@ export default function Booster({setView, miniatures}) {
       } else {
         do {
           character2 = commonCharacters[getRandomInt(commonCharacters.length)];
-        } while(character3.get("Character Name") == character2.get("Character Name"));
+        } while(character3.get("Character Name") === character2.get("Character Name"));
         
       }  
+
+      
+      setBooster([character1, character2, character3]);
+      // console.log(character1.get("Character Name"), character2.get("Character Name"),character3.get("Character Name"))
+      
       
     //   let totalHonor = character1.getCellValue("Honor") + character2.getCellValue("Honor") + character3.getCellValue("Honor");
     
@@ -53,6 +63,12 @@ export default function Booster({setView, miniatures}) {
             </div>
             <div>
                 <button onClick={() => {generateBooster()}}>Generate Booster</button>
+            </div>
+            <div>
+              {booster.map((character) => {
+                return (character ? <BoosterRow character={character}></BoosterRow> : null)
+              }
+              )}
             </div>
         </div>
     
