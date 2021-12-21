@@ -5,15 +5,15 @@ export default function BoosterRow({ character }) {
   const itemCard2 = character.get("Item Card (from Card 2)")[0]["url"];
 
   return (
-    <div className="row booster-row" key={character.get("Id")}>
-      <div className="col-md-6">
-        <img src={characterCard} alt="the character card" heigh="321px"></img>
+    <div className="row" key={character.get("Id")}>
+      <div className="col-5 d-print-inline">
+        <img className="img-fluid" src={characterCard} alt="Character Card"></img>
       </div>
-      <div className="col-md-3">
-        <img src={itemCard1} alt="item card 1" height="321px"></img>
+      <div className="col-3 d-print-inline">
+        <img className="img-fluid" src={itemCard1} alt="Item Card 1" ></img>
       </div>
-      <div className="col-md-3">
-        <img src={itemCard2} alt="item card 2" height="321px"></img>
+      <div className="col-3 d-print-inline">
+        <img className="img-fluid" src={itemCard2} alt="Item Card 2"></img>
       </div>
     </div>
   );

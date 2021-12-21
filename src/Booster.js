@@ -57,8 +57,8 @@ export default function Booster({ setView, miniatures }) {
 
   return (
     <div>
-      <h3>Random Booster Generator</h3>
-      <div className="row booster-row">
+      <div className="mb-3 row d-print-none">
+        <h3>Random Booster Generator</h3>
         <div className="col-md-4">
           <button
             onClick={() => {
@@ -87,7 +87,7 @@ export default function Booster({ setView, miniatures }) {
           </button>
         </div>
       </div>
-      <div>
+      <div className="d-grid gap-2">
         {booster.map((character) => {
           return character ? (
             <BoosterRow character={character}></BoosterRow>

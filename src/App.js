@@ -33,7 +33,7 @@ class App extends Component {
     console.log(this.state);
     return (
       <div className="App container">
-        <h1>Warcraft Army Manager</h1>
+        <h1 className="d-print-none">Warcraft Army Manager</h1>
         {this.state.view === "Home" ? (
           <Home
             setView={(view) => {
