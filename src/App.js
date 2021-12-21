@@ -1,7 +1,7 @@
 import "./App.css";
 import { Component } from "react";
 import Home from "./Home";
-import Booster from "./Booster";
+import Booster from "./Booster/Booster";
 import Airtable from "airtable";
 
 class App extends Component {
