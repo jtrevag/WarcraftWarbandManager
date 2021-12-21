@@ -3,26 +3,28 @@ import BoosterRow from "./BoosterRow";
 import Select from "react-select";
 import "./Booster.css";
 
-
 export default function Booster({ setView, miniatures }) {
   const [booster, setBooster] = useState([]);
+  const [faction, setFaction] = useState("");
   const factions = [
     { value: "Horde", label: "Horde" },
     { value: "Alliance", label: "Alliance" },
     { value: "Monster", label: "Monster" },
   ];
 
-  function generateBooster(faction) {
+  function generateBooster() {
+    let chosenFaction = faction;
+
     function getRandomInt(max) {
       return Math.floor(Math.random() * max);
     }
 
-    if (!faction) {
-      faction = factions[getRandomInt(3)].value;
+    if (!chosenFaction) {
+      chosenFaction = factions[getRandomInt(3)].value;
     }
 
     const myFactionCharacters = miniatures.filter(
-      (miniature) => miniature.get("Faction") === faction
+      (miniature) => miniature.get("Faction") === chosenFaction
     );
     console.log(myFactionCharacters);
     const epicAndRareCharacters = myFactionCharacters.filter(
@@ -67,7 +69,13 @@ export default function Booster({ setView, miniatures }) {
           </button>
         </div>
         <div className="col-md-4">
-          <Select isClearable={true} options={factions}></Select>
+          <Select
+            onChange={(input) => {
+              input ? setFaction(input.value) : setFaction("");
+            }}
+            isClearable={true}
+            options={factions}
+          ></Select>
         </div>
         <div className="col-md-4">
           <button
