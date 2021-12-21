@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/WarcraftWarbandManager/static/css/main.cf23ae30.chunk.css",
-    "main.js": "/WarcraftWarbandManager/static/js/main.14d0c5c3.chunk.js",
-    "main.js.map": "/WarcraftWarbandManager/static/js/main.14d0c5c3.chunk.js.map",
+    "main.css": "/WarcraftWarbandManager/static/css/main.1af0465c.chunk.css",
+    "main.js": "/WarcraftWarbandManager/static/js/main.16845ec9.chunk.js",
+    "main.js.map": "/WarcraftWarbandManager/static/js/main.16845ec9.chunk.js.map",
     "runtime-main.js": "/WarcraftWarbandManager/static/js/runtime-main.9e4dba5c.js",
     "runtime-main.js.map": "/WarcraftWarbandManager/static/js/runtime-main.9e4dba5c.js.map",
     "static/css/2.8c0e6b67.chunk.css": "/WarcraftWarbandManager/static/css/2.8c0e6b67.chunk.css",
@@ -12,15 +12,14 @@
     "static/js/3.d8359907.chunk.js.map": "/WarcraftWarbandManager/static/js/3.d8359907.chunk.js.map",
     "index.html": "/WarcraftWarbandManager/index.html",
     "static/css/2.8c0e6b67.chunk.css.map": "/WarcraftWarbandManager/static/css/2.8c0e6b67.chunk.css.map",
-    "static/css/main.cf23ae30.chunk.css.map": "/WarcraftWarbandManager/static/css/main.cf23ae30.chunk.css.map",
-    "static/js/2.1200d321.chunk.js.LICENSE.txt": "/WarcraftWarbandManager/static/js/2.1200d321.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/WarcraftWarbandManager/static/media/logo.6ce24c58.svg"
+    "static/css/main.1af0465c.chunk.css.map": "/WarcraftWarbandManager/static/css/main.1af0465c.chunk.css.map",
+    "static/js/2.1200d321.chunk.js.LICENSE.txt": "/WarcraftWarbandManager/static/js/2.1200d321.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9e4dba5c.js",
     "static/css/2.8c0e6b67.chunk.css",
     "static/js/2.1200d321.chunk.js",
-    "static/css/main.cf23ae30.chunk.css",
-    "static/js/main.14d0c5c3.chunk.js"
+    "static/css/main.1af0465c.chunk.css",
+    "static/js/main.16845ec9.chunk.js"
   ]
 }
