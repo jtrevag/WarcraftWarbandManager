@@ -60,7 +60,7 @@ export default function Booster({ setView, miniatures }) {
       <div className="mb-3 row d-print-none">
         <h3>Random Booster Generator</h3>
         <div className="col-md-4">
-          <button
+          <button className="btn btn-danger"
             onClick={() => {
               setView("Home");
             }}
@@ -78,7 +78,7 @@ export default function Booster({ setView, miniatures }) {
           ></Select>
         </div>
         <div className="col-md-4">
-          <button
+          <button className="btn btn-primary"
             onClick={() => {
               generateBooster();
             }}
