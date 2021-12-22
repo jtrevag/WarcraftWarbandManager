@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/WarcraftWarbandManager/static/css/main.837a5035.chunk.css",
-    "main.js": "/WarcraftWarbandManager/static/js/main.bf4255f2.chunk.js",
-    "main.js.map": "/WarcraftWarbandManager/static/js/main.bf4255f2.chunk.js.map",
+    "main.js": "/WarcraftWarbandManager/static/js/main.c8bb48d7.chunk.js",
+    "main.js.map": "/WarcraftWarbandManager/static/js/main.c8bb48d7.chunk.js.map",
     "runtime-main.js": "/WarcraftWarbandManager/static/js/runtime-main.9e4dba5c.js",
     "runtime-main.js.map": "/WarcraftWarbandManager/static/js/runtime-main.9e4dba5c.js.map",
     "static/css/2.8c0e6b67.chunk.css": "/WarcraftWarbandManager/static/css/2.8c0e6b67.chunk.css",
-    "static/js/2.1200d321.chunk.js": "/WarcraftWarbandManager/static/js/2.1200d321.chunk.js",
-    "static/js/2.1200d321.chunk.js.map": "/WarcraftWarbandManager/static/js/2.1200d321.chunk.js.map",
+    "static/js/2.7b653f07.chunk.js": "/WarcraftWarbandManager/static/js/2.7b653f07.chunk.js",
+    "static/js/2.7b653f07.chunk.js.map": "/WarcraftWarbandManager/static/js/2.7b653f07.chunk.js.map",
     "static/js/3.d8359907.chunk.js": "/WarcraftWarbandManager/static/js/3.d8359907.chunk.js",
     "static/js/3.d8359907.chunk.js.map": "/WarcraftWarbandManager/static/js/3.d8359907.chunk.js.map",
     "index.html": "/WarcraftWarbandManager/index.html",
     "static/css/2.8c0e6b67.chunk.css.map": "/WarcraftWarbandManager/static/css/2.8c0e6b67.chunk.css.map",
     "static/css/main.837a5035.chunk.css.map": "/WarcraftWarbandManager/static/css/main.837a5035.chunk.css.map",
-    "static/js/2.1200d321.chunk.js.LICENSE.txt": "/WarcraftWarbandManager/static/js/2.1200d321.chunk.js.LICENSE.txt"
+    "static/js/2.7b653f07.chunk.js.LICENSE.txt": "/WarcraftWarbandManager/static/js/2.7b653f07.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9e4dba5c.js",
     "static/css/2.8c0e6b67.chunk.css",
-    "static/js/2.1200d321.chunk.js",
+    "static/js/2.7b653f07.chunk.js",
     "static/css/main.837a5035.chunk.css",
-    "static/js/main.bf4255f2.chunk.js"
+    "static/js/main.c8bb48d7.chunk.js"
   ]
 }
