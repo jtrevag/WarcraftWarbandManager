@@ -2,6 +2,7 @@ import "./App.css";
 import { Component } from "react";
 import Home from "./Home";
 import Booster from "./Booster/Booster";
+import Manager from "./Manager/Manager";
 import Airtable from "airtable";
 
 class App extends Component {
@@ -30,7 +31,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="App container">
         <h1 className="d-print-none">Warcraft Army Manager</h1>
@@ -47,6 +47,13 @@ class App extends Component {
               this.setState({ view });
             }}
           ></Booster>
+        ) : this.state.view === "Manager" ? (
+          <Manager
+            miniatures={this.state.miniatures}
+            setView={(view) => {
+              this.setState({ view });
+            }}
+          ></Manager>
         ) : (
           ""
         )}
