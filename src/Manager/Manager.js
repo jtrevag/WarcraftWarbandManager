@@ -1,55 +1,48 @@
-import { useState } from "react";
-import Select from "react-select";
-import ArmyManagerRow from "./ArmyManagerRow";
+import { Component } from "react";
+import ArmyViewer from "./ArmyViewer/ArmyViewer";
+import CharacterViewer from "./CharacterViewer/CharacterViewer";
 
-export default function Manager({ setView }) {
-  const [faction, setFaction] = useState("");
-  const [army, setArmy] = useState(Array.apply(null, Array(3)).map(() => {return undefined}));
-  const factions = [
-    { value: "Horde", label: "Horde" },
-    { value: "Alliance", label: "Alliance" },
-    { value: "Monster", label: "Monster" },
-  ];
-
-  function loadArmy() {
-    let jsx = "";
-    for (let character in army) {
-      jsx += <ArmyManagerRow character={character}></ArmyManagerRow>;
-    }
-    return jsx;
+export default class Manager extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      army: Array.apply(null, Array(3)).map(() => {
+        return undefined;
+      }),
+      managerView: "ArmyViewer",
+      faction: undefined,
+    };
   }
 
-  return (
-    <div>
-      <h3>Warband Manager</h3>
-      <div className="mb-3 row d-print-none">
-        <div className="col-md-4">
-          <button
-            className="btn btn-danger"
-            onClick={() => {
-              setView("Home");
-            }}
-          >
-            Go Back
-          </button>
-        </div>
-        <div className="col-md-4">
-          <Select
-            onChange={(input) => {
-              input ? setFaction(input.value) : setFaction("");
-            }}
-            isClearable={true}
-            options={factions}
-          ></Select>
-        </div>
-      </div>
+  setManagerView() {
+    this.setState({ managerView: "CharacterViewer" });
+  }
+
+  render() {
+    return (
       <div>
-        {faction
-          ? army.map((character, index) => {
-              return <ArmyManagerRow key={index} character={character}></ArmyManagerRow>;
-            })
-          : ""}
+        <h3>Warband Manager</h3>
+        {this.state.managerView === "CharacterViewer" ? (
+          <CharacterViewer
+            faction={this.state.faction}
+            miniatures={this.props.miniatures}
+          ></CharacterViewer>
+        ) : (
+          <ArmyViewer
+            army={this.state.army}
+            setView={(view) => {
+              this.props.setView(view);
+            }}
+            setManagerView={(managerView) => {
+              this.setState({ managerView });
+            }}
+            faction = {this.state.faction}
+            setFaction={(faction) => {
+              this.setState({faction});
+            }}
+          ></ArmyViewer>
+        )}
       </div>
-    </div>
-  );
+    );
+  }
 }
