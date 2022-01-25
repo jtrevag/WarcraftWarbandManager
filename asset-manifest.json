@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/WarcraftWarbandManager/static/css/main.837a5035.chunk.css",
-    "main.js": "/WarcraftWarbandManager/static/js/main.141371dd.chunk.js",
-    "main.js.map": "/WarcraftWarbandManager/static/js/main.141371dd.chunk.js.map",
+    "main.js": "/WarcraftWarbandManager/static/js/main.61b3d050.chunk.js",
+    "main.js.map": "/WarcraftWarbandManager/static/js/main.61b3d050.chunk.js.map",
     "runtime-main.js": "/WarcraftWarbandManager/static/js/runtime-main.9e4dba5c.js",
     "runtime-main.js.map": "/WarcraftWarbandManager/static/js/runtime-main.9e4dba5c.js.map",
     "static/css/2.8c0e6b67.chunk.css": "/WarcraftWarbandManager/static/css/2.8c0e6b67.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.8c0e6b67.chunk.css",
     "static/js/2.dc0f78f0.chunk.js",
     "static/css/main.837a5035.chunk.css",
-    "static/js/main.141371dd.chunk.js"
+    "static/js/main.61b3d050.chunk.js"
   ]
 }
