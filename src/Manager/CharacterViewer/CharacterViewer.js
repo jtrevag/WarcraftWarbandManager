@@ -19,7 +19,7 @@ export default function CharacterViewer({ miniatures, faction }) {
   let raceOptions = [];
   let classOptions = [];
 
-  setupRaceAndClass(myFactionCharacters, raceOptions, classOptions);
+  setupRaceAndClass(myFactionCharacters, raceOptions, classOptions, raceFilter, classFilter);
   
   return (
     <div>
@@ -66,19 +66,20 @@ export default function CharacterViewer({ miniatures, faction }) {
   );
 }
 
-function setupRaceAndClass(myFactionCharacters, raceOptions, classOptions) {
+function setupRaceAndClass(myFactionCharacters, raceOptions, classOptions, raceFilter, classFilter) {
   let races = [];
   let classes = [];
 
+
   myFactionCharacters.forEach((character) => {
-    if (races.indexOf(character.get("Race")) === -1) {
+    if ((classFilter ? character.get("Class") === classFilter.value : true) && races.indexOf(character.get("Race")) === -1) {
       races.push(character.get("Race"));
       raceOptions.push({
         value: character.get("Race"),
         label: character.get("Race"),
       });
     }
-    if (classes.indexOf(character.get("Class")) === -1) {
+    if ((raceFilter ? character.get("Race") === raceFilter.value : true) && classes.indexOf(character.get("Class")) === -1) {
       classes.push(character.get("Class"));
       classOptions.push({
         value: character.get("Class"),
