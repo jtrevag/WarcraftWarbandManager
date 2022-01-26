@@ -1,7 +1,14 @@
 import Select from "react-select";
 import ArmyViewerRow from "./ArmyViewerRow";
 
-export default function ArmyViewer({ setView, setManagerView, army, faction, setFaction, selectIndex }) {
+export default function ArmyViewer({
+  setView,
+  setManagerView,
+  army,
+  faction,
+  setFaction,
+  selectIndex,
+}) {
   const factions = [
     { value: "Horde", label: "Horde" },
     { value: "Alliance", label: "Alliance" },
@@ -10,18 +17,18 @@ export default function ArmyViewer({ setView, setManagerView, army, faction, set
 
   return (
     <div>
-      <div className="col-md-4">
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            setView("Home");
-          }}
-        >
-          Go Back
-        </button>
-      </div>
-      <div className="mb-3 row d-print-none">
+      <div className="row m-4">
         <div className="col-md-4">
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              setView("Home");
+            }}
+          >
+            Go Back
+          </button>
+        </div>
+        <div className="col-4 d-print-none">
           <Select
             onChange={(input) => {
               input ? setFaction(input.value) : setFaction("");
@@ -31,6 +38,7 @@ export default function ArmyViewer({ setView, setManagerView, army, faction, set
           ></Select>
         </div>
       </div>
+
       <div>
         {faction
           ? army.map((character, index) => {

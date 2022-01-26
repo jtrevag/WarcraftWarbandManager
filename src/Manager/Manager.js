@@ -20,7 +20,6 @@ export default class Manager extends Component {
   }
 
   render() {
-    console.log(this.state.army);
     return (
       <div>
         <h3>Warband Manager</h3>
