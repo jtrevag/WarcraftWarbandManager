@@ -11,6 +11,7 @@ export default class Manager extends Component {
       }),
       managerView: "ArmyViewer",
       faction: undefined,
+      index: -1
     };
   }
 
@@ -19,6 +20,7 @@ export default class Manager extends Component {
   }
 
   render() {
+    console.log(this.state.army);
     return (
       <div>
         <h3>Warband Manager</h3>
@@ -26,6 +28,16 @@ export default class Manager extends Component {
           <CharacterViewer
             faction={this.state.faction}
             miniatures={this.props.miniatures}
+            setManagerView={(managerView) => {
+              this.setState({ managerView });
+            }}
+            index={this.state.index}
+            setArmyUnit={(index, character) => {
+              const newArmyUnit = this.state.army.slice() //copy the array
+              newArmyUnit[index] = character //execute the manipulations
+              this.setState({army: newArmyUnit}) //set the new state
+
+            }}
           ></CharacterViewer>
         ) : (
           <ArmyViewer
@@ -39,6 +51,9 @@ export default class Manager extends Component {
             faction = {this.state.faction}
             setFaction={(faction) => {
               this.setState({faction});
+            }}
+            selectIndex = {(index) => {
+              this.setState({index});
             }}
           ></ArmyViewer>
         )}

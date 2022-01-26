@@ -1,9 +1,17 @@
 import Select from "react-select";
 import { useState } from "react";
+import "./CharacterViewer.css";
 
-export default function CharacterViewer({ miniatures, faction }) {
+export default function CharacterViewer({
+  miniatures,
+  faction,
+  setManagerView,
+  setArmyUnit,
+  index,
+}) {
   const [raceFilter, setRaceFilter] = useState(undefined);
   const [classFilter, setClassFilter] = useState(undefined);
+  const [selectedCharacter, setSelectedCharacter] = useState(undefined);
 
   let myFactionCharacters = miniatures.filter(
     (miniature) => miniature.get("Faction") === faction
@@ -19,12 +27,35 @@ export default function CharacterViewer({ miniatures, faction }) {
   let raceOptions = [];
   let classOptions = [];
 
-  setupRaceAndClass(myFactionCharacters, raceOptions, classOptions, raceFilter, classFilter);
-  
+  setupRaceAndClass(
+    myFactionCharacters,
+    raceOptions,
+    classOptions,
+    raceFilter,
+    classFilter
+  );
+
+  function selectCharacter(character) {
+    if (selectedCharacter === character) {
+      setSelectedCharacter(undefined);
+    } else {
+      setSelectedCharacter(character);
+    }
+  }
+
   return (
     <div>
       <div className="mb-3 row d-print-none">
-        <div className="col-4">
+        <div className="col-3">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => setManagerView("ArmyViewer")}
+          >
+            Go Back
+          </button>
+        </div>
+        <div className="col-3">
           <Select
             isClearable={true}
             options={raceOptions}
@@ -33,7 +64,7 @@ export default function CharacterViewer({ miniatures, faction }) {
             }}
           ></Select>
         </div>
-        <div className="col-md-4">
+        <div className="col-3">
           <Select
             isClearable={true}
             options={classOptions}
@@ -42,6 +73,21 @@ export default function CharacterViewer({ miniatures, faction }) {
             }}
           ></Select>
         </div>
+        {selectedCharacter ? (
+          <div className="col-3">
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={() => {
+                console.log(index, selectCharacter);
+                setArmyUnit(index, selectedCharacter);
+                setManagerView("ArmyViewer");
+              }}
+            >
+              Confirm
+            </button>
+          </div>
+        ) : undefined}
       </div>
 
       <div className="row">
@@ -52,11 +98,17 @@ export default function CharacterViewer({ miniatures, faction }) {
               className="col-4 my-1 d-print-inline"
             >
               <img
-                className="img-fluid"
+                className={
+                  "img-fluid" +
+                  (selectedCharacter === character ? " selected" : "")
+                }
                 src={character.get("Character Card")[0]["url"]}
                 alt="Character Card"
                 width="416"
                 height="297"
+                onClick={() => {
+                  selectCharacter(character);
+                }}
               ></img>
             </div>
           );
@@ -66,20 +118,31 @@ export default function CharacterViewer({ miniatures, faction }) {
   );
 }
 
-function setupRaceAndClass(myFactionCharacters, raceOptions, classOptions, raceFilter, classFilter) {
+function setupRaceAndClass(
+  myFactionCharacters,
+  raceOptions,
+  classOptions,
+  raceFilter,
+  classFilter
+) {
   let races = [];
   let classes = [];
 
-
   myFactionCharacters.forEach((character) => {
-    if ((classFilter ? character.get("Class") === classFilter.value : true) && races.indexOf(character.get("Race")) === -1) {
+    if (
+      (classFilter ? character.get("Class") === classFilter.value : true) &&
+      races.indexOf(character.get("Race")) === -1
+    ) {
       races.push(character.get("Race"));
       raceOptions.push({
         value: character.get("Race"),
         label: character.get("Race"),
       });
     }
-    if ((raceFilter ? character.get("Race") === raceFilter.value : true) && classes.indexOf(character.get("Class")) === -1) {
+    if (
+      (raceFilter ? character.get("Race") === raceFilter.value : true) &&
+      classes.indexOf(character.get("Class")) === -1
+    ) {
       classes.push(character.get("Class"));
       classOptions.push({
         value: character.get("Class"),

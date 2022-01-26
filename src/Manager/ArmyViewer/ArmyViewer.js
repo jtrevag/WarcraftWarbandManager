@@ -1,7 +1,7 @@
 import Select from "react-select";
 import ArmyViewerRow from "./ArmyViewerRow";
 
-export default function ArmyViewer({ setView, setManagerView, army, faction, setFaction }) {
+export default function ArmyViewer({ setView, setManagerView, army, faction, setFaction, selectIndex }) {
   const factions = [
     { value: "Horde", label: "Horde" },
     { value: "Alliance", label: "Alliance" },
@@ -37,9 +37,11 @@ export default function ArmyViewer({ setView, setManagerView, army, faction, set
               return (
                 <ArmyViewerRow
                   key={index}
+                  index={index}
                   character={character}
                   setManagerView={setManagerView}
                   faction={faction}
+                  selectIndex={selectIndex}
                 ></ArmyViewerRow>
               );
             })
