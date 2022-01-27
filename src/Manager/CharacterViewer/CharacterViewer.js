@@ -8,6 +8,7 @@ export default function CharacterViewer({
   setManagerView,
   setArmyUnit,
   index,
+  setManagedUnit
 }) {
   const [raceFilter, setRaceFilter] = useState(undefined);
   const [classFilter, setClassFilter] = useState(undefined);
@@ -79,9 +80,9 @@ export default function CharacterViewer({
               type="button"
               className="btn btn-success"
               onClick={() => {
-                console.log(index, selectCharacter);
                 setArmyUnit(index, selectedCharacter);
-                setManagerView("ArmyViewer");
+                setManagedUnit(selectedCharacter);
+                setManagerView("UnitViewer");
               }}
             >
               Confirm

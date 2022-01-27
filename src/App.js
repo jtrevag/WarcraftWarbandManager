@@ -12,6 +12,7 @@ class App extends Component {
       count: 0,
       view: "Home",
       miniatures: [],
+      cards: []
     };
   }
 
@@ -25,6 +26,15 @@ class App extends Component {
       .eachPage((records, fetchNextPage) => {
         this.setState({
           miniatures: [...this.state.miniatures, ...records],
+        });
+        fetchNextPage();
+      });
+
+      base("Cards")
+      .select({ view: "Grid view" })
+      .eachPage((records, fetchNextPage) => {
+        this.setState({
+          cards: [...this.state.cards, ...records],
         });
         fetchNextPage();
       });
@@ -50,6 +60,7 @@ class App extends Component {
         ) : this.state.view === "Manager" ? (
           <Manager
             miniatures={this.state.miniatures}
+            cards={this.state.cards}
             setView={(view) => {
               this.setState({ view });
             }}

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import ArmyViewer from "./ArmyViewer/ArmyViewer";
 import CharacterViewer from "./CharacterViewer/CharacterViewer";
+import UnitViewer from "./UnitViewer/UnitViewer";
 
 export default class Manager extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ export default class Manager extends Component {
       }),
       managerView: "ArmyViewer",
       faction: undefined,
-      index: -1
+      index: -1,
+      managedUnit: undefined,
     };
   }
 
@@ -32,12 +34,19 @@ export default class Manager extends Component {
             }}
             index={this.state.index}
             setArmyUnit={(index, character) => {
-              const newArmyUnit = this.state.army.slice() //copy the array
-              newArmyUnit[index] = character //execute the manipulations
-              this.setState({army: newArmyUnit}) //set the new state
-
+              const newArmyUnit = this.state.army.slice(); //copy the array
+              newArmyUnit[index] = character; //execute the manipulations
+              this.setState({ army: newArmyUnit }); //set the new state
+            }}
+            setManagedUnit={(character) => {
+              this.setState({ managedUnit: character });
             }}
           ></CharacterViewer>
+        ) : this.state.managerView === "UnitViewer" ? (
+          <UnitViewer
+            character={this.state.managedUnit}
+            cards={this.props.cards}
+          ></UnitViewer>
         ) : (
           <ArmyViewer
             army={this.state.army}
@@ -47,12 +56,12 @@ export default class Manager extends Component {
             setManagerView={(managerView) => {
               this.setState({ managerView });
             }}
-            faction = {this.state.faction}
+            faction={this.state.faction}
             setFaction={(faction) => {
-              this.setState({faction});
+              this.setState({ faction });
             }}
-            selectIndex = {(index) => {
-              this.setState({index});
+            selectIndex={(index) => {
+              this.setState({ index });
             }}
           ></ArmyViewer>
         )}
